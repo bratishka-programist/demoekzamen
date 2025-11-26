@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d7482fa6d4b247d2999164cf86b271e1" Name="Diagram1">
+        <EntityTypeShape EntityType="Zadanie10202Model.sysdiagram" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Данные_партнёров" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Количества_продукции" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Материалы" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Материалы_продукции" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Продукции" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Типы_материалов" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Типы_партнёров" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Типы_продукции" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie10202Model.Юридические_адреса" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="Zadanie10202Model.FK_Данные_партнёров_Типы_партнёров" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie10202Model.FK_Данные_партнёров_Юридические_адреса" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie10202Model.FK_Количества_продукции_Данные_партнёров" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie10202Model.FK_Количества_продукции_Продукции" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie10202Model.FK_Материалы_продукции_Материалы" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie10202Model.FK_Материалы_Типы_материалов" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie10202Model.FK_Материалы_продукции_Продукции" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie10202Model.FK_Продукции_Типы_продукции" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
