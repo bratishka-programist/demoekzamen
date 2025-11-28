@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadanie10202"
         mc:Ignorable="d"
-        Title="ДобавлениеРедактирование_заявки" Height="680" Width="900" FontFamily="Bahnschrift Light SemiCondensed" WindowStartupLocation="CenterScreen">
+        Title="ДобавлениеРедактирование_заявки" Height="750" Width="900" FontFamily="Bahnschrift Light SemiCondensed" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -104,6 +104,7 @@
                     Click="cancelRequest_Click"
                     >Отмена</Button>
         </StackPanel>
+        
         
     </Grid>
 </Window>

@@ -2,28 +2,23 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Zadanie10202
 {
     /// <summary>
-    /// Логика взаимодействия для ДобавлениеРедактирование_заявки.xaml
+    /// Окно добавления и редактирования заявок
     /// </summary>
     public partial class ДобавлениеРедактирование_заявки : Window
     {
         private Данные_партнёров currentPartner;
         private bool isEditMode;
         private List<ВременнаяПродукция> selectedProducts = new List<ВременнаяПродукция>();
-        public ДобавлениеРедактирование_заявки() // конструктор для создания заявки
+
+        /// <summary>
+        /// Конструктор для создания заявки
+        /// </summary>
+        public ДобавлениеРедактирование_заявки()
         {
             InitializeComponent();
             isEditMode = false;
@@ -35,7 +30,11 @@ namespace Zadanie10202
             prodVZaivki.Visibility = Visibility.Collapsed;
         }
 
-        public ДобавлениеРедактирование_заявки(Данные_партнёров партнер) // конструктор для редактирования заявки
+        /// <summary>
+        /// Конструктор для редактирования заявки
+        /// </summary>
+        /// <param name="партнер">Партнер для редактирования</param>
+        public ДобавлениеРедактирование_заявки(Данные_партнёров партнер)
         {
             InitializeComponent();
             currentPartner = партнер;
@@ -48,19 +47,25 @@ namespace Zadanie10202
             loadDataGridData();
             itogoSum.Text = "Итого: " + calculateTotalSum();
         }
+
+        /// <summary>Загрузка типов партнеров в комбобокс</summary>
         private void loadComboTypePartner()
         {
             typeOfPartner.ItemsSource = DB.Context.Типы_партнёров.ToList();
             typeOfPartner.DisplayMemberPath = "Тип_партнёров";
             typeOfPartner.SelectedValuePath = "Номер_типа_партнёров";
         }
+
+        /// <summary>Загрузка всей продукции</summary>
         private void loadComboProducts()
         {
             productsComboBox.ItemsSource = DB.Context.Продукции.ToList();
             productsComboBox.SelectedValuePath = "Номер_продукции";
             productsComboBox.DisplayMemberPath = "Наименование_продукции";
         }
-        private void loadComboProductsKotoriyBilZakazan() // Загрузка уже была в заявке у него
+
+        /// <summary>Загрузка продукции из заявок партнера</summary>
+        private void loadComboProductsKotoriyBilZakazan()
         {
             try
             {
@@ -83,6 +88,8 @@ namespace Zadanie10202
                 MessageBox.Show($"Ошибка загрузки{exe.Message}");
             }
         }
+
+        /// <summary>Загрузка данных в DataGrid</summary>
         private void loadDataGridData()
         {
             if (!isEditMode) return;
@@ -101,7 +108,10 @@ namespace Zadanie10202
             UpdateDataGrid();
             UpdateTotalSum();
         }
-        public string calculateTotalSum() // Загрузка итоговой суммы
+
+        /// <summary>Расчет общей суммы заявки</summary>
+        /// <returns>Сумма в рублях</returns>
+        public string calculateTotalSum()
         {
             try
             {
@@ -124,6 +134,8 @@ namespace Zadanie10202
                 return "Ошибка расчета";
             }
         }
+
+        /// <summary>Загрузка данных партнера в форму</summary>
         private void loadComboDataPartner()
         {
             if (currentPartner == null) return;
@@ -160,6 +172,8 @@ namespace Zadanie10202
                 MessageBox.Show($"Ошибка загрузки: {e.Message}");
             }
         }
+
+        /// <summary>Сохранение заявки</summary>
         private void saveRequest_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(reitPart.Text) && (!int.TryParse(reitPart.Text, out int rating) || rating < 0))
@@ -225,7 +239,6 @@ namespace Zadanie10202
                         mainWindow.Show();
                         this.Close();
                     }
-
                 }
             }
             catch (Exception ex)
@@ -233,6 +246,9 @@ namespace Zadanie10202
                 MessageBox.Show($"Ошибка при сохранении: {ex.Message}");
             }
         }
+
+        /// <summary>Сохранение продукции в БД</summary>
+        /// <param name="partnerId">ID партнера</param>
         private void SaveProductsToDatabase(int partnerId)
         {
             if (selectedProducts.Count == 0) return;
@@ -250,6 +266,7 @@ namespace Zadanie10202
             }
         }
 
+        /// <summary>Обновление данных партнера</summary>
         private void updatePartner()
         {
             if (currentPartner == null) return;
@@ -270,9 +287,10 @@ namespace Zadanie10202
                 currentPartner.Юридические_адреса.Дом = int.Parse(domPart.Text);
             }
         }
+
+        /// <summary>Создание нового партнера</summary>
         private void createPartner()
         {
-            // Создаем новый адрес
             var newAdress = new Юридические_адреса
             {
                 Индекс = indexPart.Text,
@@ -300,12 +318,16 @@ namespace Zadanie10202
             dobProd.Visibility = Visibility.Visible;
             prodVZaivki.Visibility = Visibility.Visible;
         }
+
+        /// <summary>Отмена создания заявки</summary>
         private void cancelRequest_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
         }
+
+        /// <summary>Добавление продукции в заявку</summary>
         private void addProduct_Click(object sender, RoutedEventArgs e)
         {
             if (currentPartner == null)
@@ -338,7 +360,6 @@ namespace Zadanie10202
 
                 selectedProducts.Add(новаяПродукция);
                 UpdateDataGrid();
-
                 UpdateTotalSum();
 
                 quantityTextBox.Text = "1";
@@ -351,12 +372,15 @@ namespace Zadanie10202
                 MessageBox.Show($"Ошибка при добавлении продукции: {ex.Message}");
             }
         }
+
+        /// <summary>Обновление DataGrid</summary>
         private void UpdateDataGrid()
         {
             selectedProductsDataGrid.ItemsSource = null;
             selectedProductsDataGrid.ItemsSource = selectedProducts;
         }
 
+        /// <summary>Обновление общей суммы</summary>
         private void UpdateTotalSum()
         {
             decimal total = selectedProducts.Sum(p => p.Стоимость);

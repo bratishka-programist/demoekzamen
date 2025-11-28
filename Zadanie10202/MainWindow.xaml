@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadanie10202"
         mc:Ignorable="d"
-        Title="Заявки партнеров" Height="450" Width="900" FontFamily="Bahnschrift Light SemiCondensed" WindowStartupLocation="CenterScreen">
+        Title="Заявки партнеров" Height="470" Width="900" FontFamily="Bahnschrift Light SemiCondensed" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="35*"/>
@@ -68,7 +68,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="addRequest" Width="128" HorizontalAlignment="Left" Background="#546F94" Foreground="White" Click="addMaterial_Click" Content="Создать заявку" Margin="10,10,0,274" Grid.Row="2"/>
+        <Button x:Name="addRequest" Width="145" HorizontalAlignment="Left" Background="#546F94" Foreground="White" Click="addMaterial_Click" Content="Создать заявку" Margin="10,10,0,274" Grid.Row="2"/>
+        <Button x:Name="showProductOffersButton" Content="Предложения продукции" 
+            Click="ShowProductOffersButton_Click" Margin="10,75,0,209" Padding="10,5" Background="#546F94" Grid.Row="2" Foreground="White" HorizontalAlignment="Left" Width="145"/>
         <TextBlock Margin="10,0,195,0" Grid.Row="1"><Run Text="Компания &quot;Новые технологии&quot;"/></TextBlock>
     </Grid>
 </Window>
