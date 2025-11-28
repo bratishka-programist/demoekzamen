@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Zadanie10202</name>
+    </assembly>
+    <members>
+        <member name="M:Zadanie10202.MaterialCalculator.CalculateMaterialRequired(System.Int32,System.Int32,System.Int32,System.Int32,System.Double,System.Double)">
+            <summary>
+            Расчет количества материала для производства продукции
+            </summary>
+            <param name="productTypeId">Идентификатор типа продукции</param>
+            <param name="materialTypeId">Идентификатор типа материала</param>
+            <param name="requiredQuantity">Требуемое количество продукции</param>
+            <param name="stockQuantity">Количество продукции на складе</param>
+            <param name="parameter1">Параметр продукции 1 (вещественное число)</param>
+            <param name="parameter2">Параметр продукции 2 (вещественное число)</param>
+            <returns>Количество необходимого материала или -1 при ошибке</returns>
+        </member>
+        <member name="T:Zadanie10202.ДобавлениеРедактирование_заявки">
+            <summary>
+            Окно добавления и редактирования заявок
+            </summary>
+            <summary>
+            ДобавлениеРедактирование_заявки
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.#ctor">
+            <summary>
+            Конструктор для создания заявки
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.#ctor(Zadanie10202.Данные_партнёров)">
+            <summary>
+            Конструктор для редактирования заявки
+            </summary>
+            <param name="партнер">Партнер для редактирования</param>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.loadComboTypePartner">
+            <summary>Загрузка типов партнеров в комбобокс</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.loadComboProducts">
+            <summary>Загрузка всей продукции</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.loadComboProductsKotoriyBilZakazan">
+            <summary>Загрузка продукции из заявок партнера</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.loadDataGridData">
+            <summary>Загрузка данных в DataGrid</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.calculateTotalSum">
+            <summary>Расчет общей суммы заявки</summary>
+            <returns>Сумма в рублях</returns>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.loadComboDataPartner">
+            <summary>Загрузка данных партнера в форму</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.saveRequest_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>Сохранение заявки</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.SaveProductsToDatabase(System.Int32)">
+            <summary>Сохранение продукции в БД</summary>
+            <param name="partnerId">ID партнера</param>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.updatePartner">
+            <summary>Обновление данных партнера</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.createPartner">
+            <summary>Создание нового партнера</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.cancelRequest_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>Отмена создания заявки</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.addProduct_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>Добавление продукции в заявку</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.UpdateDataGrid">
+            <summary>Обновление DataGrid</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.UpdateTotalSum">
+            <summary>Обновление общей суммы</summary>
+        </member>
+        <member name="M:Zadanie10202.ДобавлениеРедактирование_заявки.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Zadanie10202.ПредложениеПродукции">
+            <summary>
+            Окно предложений продукции партнера
+            </summary>
+            <summary>
+            ПредложениеПродукции
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.#ctor(Zadanie10202.Данные_партнёров)">
+            <summary>
+            Конструктор окна предложений
+            </summary>
+            <param name="partner">Партнер</param>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.LoadData">
+            <summary>Загрузка всех данных</summary>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.LoadPartnerInfo">
+            <summary>Загрузка информации о партнере</summary>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.LoadProductOffers">
+            <summary>Загрузка предложений продукции</summary>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.LoadCalculationComboBox">
+            <summary>Загрузка комбобокса для расчета</summary>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.CalculateMaterialButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>Расчет материалов</summary>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.BackButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>Возврат к главному окну</summary>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.calculationProductComboBox_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>Изменение выбора продукции</summary>
+        </member>
+        <member name="M:Zadanie10202.ПредложениеПродукции.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Zadanie10202.ProductOfferViewModel">
+            <summary>
+            Модель для отображения предложений
+            </summary>
+        </member>
+        <member name="P:Zadanie10202.ProductOfferViewModel.НомерПродукции">
+            <summary>ID продукции</summary>
+        </member>
+        <member name="P:Zadanie10202.ProductOfferViewModel.Наименование">
+            <summary>Название продукции</summary>
+        </member>
+        <member name="P:Zadanie10202.ProductOfferViewModel.Артикул">
+            <summary>Артикул</summary>
+        </member>
+        <member name="P:Zadanie10202.ProductOfferViewModel.МинимальнаяСтоимость">
+            <summary>Минимальная стоимость</summary>
+        </member>
+        <member name="P:Zadanie10202.ProductOfferViewModel.КоличествоВЗаявках">
+            <summary>Количество в заявках</summary>
+        </member>
+        <member name="P:Zadanie10202.ProductOfferViewModel.ОбщаяСтоимость">
+            <summary>Общая стоимость</summary>
+        </member>
+        <member name="T:Zadanie10202.App">
+            <summary>
+            Логика взаимодействия для App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Zadanie10202.MainWindow">
+            <summary>
+            Главное окно приложения для управления заявками
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.MainWindow.#ctor">
+            <summary>
+            Конструктор главного окна
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.MainWindow.loadZaivki">
+            <summary>
+            Загружает список заявок партнеров
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.MainWindow.getAdresString(Zadanie10202.Данные_партнёров)">
+            <summary>
+            Формирует строку адреса партнера
+            </summary>
+            <param name="партнер">Партнер</param>
+            <returns>Строка адреса</returns>
+        </member>
+        <member name="M:Zadanie10202.MainWindow.calculateTotalSum(Zadanie10202.Данные_партнёров)">
+            <summary>
+            Расчет общей суммы заявок партнера
+            </summary>
+            <param name="партнер">Партнер</param>
+            <returns>Сумма в рублях</returns>
+        </member>
+        <member name="M:Zadanie10202.MainWindow.addMaterial_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Создание новой заявки
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.MainWindow.ShowProductOffersButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Просмотр предложений продукции
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.MainWindow.listBoxZaivki_MouseDoubleClick(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Редактирование заявки по двойному клику
+            </summary>
+        </member>
+        <member name="M:Zadanie10202.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Zadanie10202.Properties.Resources">
+            <summary>
+              Класс ресурсов со строгим типом для поиска локализованных строк и пр.
+            </summary>
+        </member>
+        <member name="P:Zadanie10202.Properties.Resources.ResourceManager">
+            <summary>
+              Возврат кэшированного экземпляра ResourceManager, используемого этим классом.
+            </summary>
+        </member>
+        <member name="P:Zadanie10202.Properties.Resources.Culture">
+            <summary>
+              Переопределяет свойство CurrentUICulture текущего потока для всех
+              подстановки ресурсов с помощью этого класса ресурсов со строгим типом.
+            </summary>
+        </member>
+    </members>
+</doc>
